@@ -34,7 +34,8 @@ let getWebhook = (req, res) => {
 
 let postWebhook = (req, res) => {
   let body = req.body;
-
+  // Test request to server?
+  console.log(body);
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
@@ -49,7 +50,6 @@ let postWebhook = (req, res) => {
       let sender_psid = webhook_event.sender.id;
       console.log('Sender PSID: ' + sender_psid);
     });
-
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
